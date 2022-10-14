@@ -78,7 +78,7 @@ sudo apt install wireguard resolvconf
 # copy as wg0.conf to client (run this from client terminal)
 scp ubuntu@amd1:/opt/wireguard-server/config/peer1/peer1.conf  /etc/wireguard/wg0.conf
 
-# run Wireguard on client
+# start Wireguard on client
 wg-quick up wg0
 
 # check if client is connected
@@ -86,6 +86,9 @@ sudo wg
 
 # check on server
 docker exec -it wireguard wg
+
+# stop wireguard (or restart)
+wg-quick down wg0
 ```
 
 ### Restart and recreate if `docker-compose.yml` is edited (peers number)
